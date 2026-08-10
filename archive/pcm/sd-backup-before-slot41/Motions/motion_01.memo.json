@@ -1,0 +1,8 @@
+{
+  "memo": "LEFT graph segment 1: counter-steer 90, straight 360, counter-steer 90; net 0 to 360 deg",
+  "teaching_start_angles_rad": [null, null, 0.0, null, null, null, 0.0, 0.0, 0.0, null, null, null],
+  "motion_sha256": "6e93c75b427979a5c76e948bbf9185a31f367ad8448002467b44da10aa9dd26b",
+  "schema": 2,
+  "slot_id": 1,
+  "updated": "2026-08-07T17:52:03+09:00"
+}

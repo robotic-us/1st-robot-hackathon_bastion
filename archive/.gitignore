@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.so
+build/
+install/
+log/
+.pytest_cache/
+dashboard_state.json
