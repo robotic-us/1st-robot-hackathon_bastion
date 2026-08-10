@@ -1,0 +1,21 @@
+{
+  "memo": "inverse replay of slot 9: B+L+B+B+L+B+B; start (2418.0, 1182.0); end (0.0, 0.0) deg",
+  "teaching_start_angles_rad": [
+    null,
+    null,
+    42.20206131322289,
+    null,
+    null,
+    null,
+    20.629791758572974,
+    20.629791758572974,
+    42.20206131322289,
+    null,
+    null,
+    null
+  ],
+  "motion_sha256": "86b73d773acada7906e55aed60b32121b4072ffb9247a36961c81703670bc4ed",
+  "schema": 2,
+  "slot_id": 19,
+  "updated": "2026-08-08T06:14:43+09:00"
+}

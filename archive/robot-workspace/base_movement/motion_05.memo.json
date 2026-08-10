@@ -1,0 +1,21 @@
+{
+  "memo": "forward route: F+F+R+F+L+F; start (0.0, 0.0); end (1440.0, 1440.0) deg",
+  "teaching_start_angles_rad": [
+    null,
+    null,
+    0.0,
+    null,
+    null,
+    null,
+    0.0,
+    0.0,
+    0.0,
+    null,
+    null,
+    null
+  ],
+  "motion_sha256": "47fea87ddcad422df31b455679beb274a13a435ec45aece794998a84486c02ce",
+  "schema": 2,
+  "slot_id": 5,
+  "updated": "2026-08-08T06:14:43+09:00"
+}

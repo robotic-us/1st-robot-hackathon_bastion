@@ -1,0 +1,21 @@
+{
+  "memo": "umbrella pinion node 0x03 / MD1: absolute 0.0 to 100.0 deg; all other axes omitted",
+  "teaching_start_angles_rad": [
+    null,
+    0.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "motion_sha256": "72b7c6aa5cded41e16d2d04c2ee11689f1b0390bf576765633c9d3098a0575b4",
+  "schema": 2,
+  "slot_id": 42,
+  "updated": "2026-08-08T09:24:56+09:00"
+}

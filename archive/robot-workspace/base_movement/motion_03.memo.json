@@ -1,0 +1,8 @@
+{
+  "memo": "RIGHT differential turn interpolated to about 90 deg: nodes 4/A (MD2/MD8) CW to +309 deg; nodes 9/8 (MD7/MD6) CCW to -309 deg",
+  "teaching_start_angles_rad": [null, null, 0.0, null, null, null, 0.0, 0.0, 0.0, null, null, null],
+  "motion_sha256": "636c09378f0fc7eed1a97c73cb5cefbe59aaa2bc74758893d0acd84e788dd228",
+  "schema": 2,
+  "slot_id": 3,
+  "updated": "2026-08-08T06:01:34+09:00"
+}

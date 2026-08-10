@@ -1,0 +1,8 @@
+{
+  "memo": "RIGHT differential turn: nodes 4/A (MD2/MD8) CW to +360 deg; nodes 9/8 (MD7/MD6) CCW to -360 deg",
+  "teaching_start_angles_rad": [null, null, 0.0, null, null, null, 0.0, 0.0, 0.0, null, null, null],
+  "motion_sha256": "555b5f254ca224ac427b82e22b249b12e7db887d7717b6d63efbdad6573aecdb",
+  "schema": 2,
+  "slot_id": 3,
+  "updated": "2026-08-07T22:02:29+09:00"
+}

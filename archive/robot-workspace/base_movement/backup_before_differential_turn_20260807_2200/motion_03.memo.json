@@ -1,0 +1,8 @@
+{
+  "memo": "RIGHT base movement: counter-steer 90, straight 360, counter-steer 90; net 0 to 360 deg",
+  "teaching_start_angles_rad": [null, null, 0.0, null, null, null, 0.0, 0.0, 0.0, null, null, null],
+  "motion_sha256": "23af249291477b4f87007791cdabf065355d80b9b5233bba80194d4f291ac4a6",
+  "schema": 2,
+  "slot_id": 3,
+  "updated": "2026-08-07T21:20:00+09:00"
+}

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SOLSHADE · 스마트 양산 로봇</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">S</div>
+    <div>
+      <p class="eyebrow">KAIST ROBOT HACKATHON</p>
+      <h1>SOLSHADE</h1>
+    </div>
+    <div class="system-status">
+      <span class="status-dot" id="statusDot"></span>
+      <div><small>ROBOT STATUS</small><strong id="robotStatus">연결 확인 중</strong></div>
+    </div>
+    <time id="clock">--:--</time>
+  </header>
+
+  <main>
+    <section class="hero panel">
+      <div>
+        <p class="eyebrow accent">AUTONOMOUS SHADE SYSTEM</p>
+        <h2>태양을 읽고,<br><span>사람을 따라갑니다.</span></h2>
+      </div>
+      <div class="live-metrics">
+        <article><span>양산 높이</span><strong id="heightMetric">기본</strong><small id="heightSub">0°</small></article>
+        <article><span>양산 기울기</span><strong id="tiltMetric">0°</strong><small id="tiltSub">기본 각도</small></article>
+        <article><span>현재 동작</span><strong id="motionMetric">대기</strong><small id="motionSub">명령을 선택하세요</small></article>
+      </div>
+    </section>
+
+    <div class="dashboard-grid">
+      <section class="panel parking-panel">
+        <div class="section-heading">
+          <div><p class="step">01</p><h3>주차 위치 안내</h3></div>
+          <span class="tag">왕복 자동 운행</span>
+        </div>
+        <p class="description">주차칸을 선택하면 안내 후 5초 대기하고 출발점으로 복귀합니다.</p>
+        <div class="parking-map">
+          <div class="lane-line"></div>
+          <div class="parking-row top-row">
+            <button class="parking-spot" data-spot="1"><span>P</span><b>01</b></button>
+            <button class="parking-spot" data-spot="2"><span>P</span><b>02</b></button>
+            <button class="parking-spot" data-spot="3"><span>P</span><b>03</b></button>
+            <button class="parking-spot" data-spot="4"><span>P</span><b>04</b></button>
+          </div>
+          <div class="drive-lane"><span>ONE WAY</span><i>→</i><i>→</i><i>→</i></div>
+          <div class="parking-row bottom-row">
+            <div class="start-zone"><span>START</span><b>출발</b></div>
+            <button class="parking-spot" data-spot="5"><span>P</span><b>05</b></button>
+            <button class="parking-spot" data-spot="6"><span>P</span><b>06</b></button>
+            <button class="parking-spot" data-spot="7"><span>P</span><b>07</b></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel height-panel">
+        <div class="section-heading">
+          <div><p class="step">02</p><h3>사용자 맞춤 높이</h3></div>
+          <span class="tag">키 기반 제어</span>
+        </div>
+        <label class="giant-input">
+          <span>사용자 키</span>
+          <div><input id="heightInput" type="number" min="100" max="230" value="175" inputmode="numeric"><b>cm</b></div>
+        </label>
+        <div class="height-scale" aria-hidden="true">
+          <span>150</span><span>160</span><span>170</span><span>180</span><span>190+</span>
+        </div>
+        <div class="recommendation">
+          <span>추천 높이</span><strong id="heightRecommendation">3단계 · 150°</strong>
+        </div>
+        <button class="primary-action" id="heightAction">높이 적용</button>
+      </section>
+
+      <section class="panel solar-panel">
+        <div class="section-heading">
+          <div><p class="step">03</p><h3>태양 추적 기울기</h3></div>
+          <span class="tag">위치 · 시간 기반</span>
+        </div>
+        <div class="location-grid">
+          <label><span>위도</span><input id="latitude" type="number" step="0.0001" value="36.3721"></label>
+          <label><span>경도</span><input id="longitude" type="number" step="0.0001" value="127.3604"></label>
+          <label class="datetime-field"><span>기준 시각</span><input id="dateTime" type="datetime-local"></label>
+        </div>
+        <div class="sun-result">
+          <div class="tilt-visual">
+            <div class="angle-guide"><span>0°</span><i>+</i></div>
+            <div class="umbrella-arm" id="umbrellaArm"><div class="umbrella-canopy"></div><div class="umbrella-pole"></div></div>
+            <div class="robot-base">REAR VIEW</div>
+          </div>
+          <div class="sun-values">
+            <div><span>태양 고도</span><strong id="sunElevation">--°</strong></div>
+            <div class="selected"><span>선택 기울기</span><strong id="selectedTilt">--°</strong></div>
+          </div>
+        </div>
+        <div class="solar-actions">
+          <button class="secondary-action" id="solarCalculate">다시 계산</button>
+          <button class="primary-action" id="solarAction">기울기 적용</button>
+        </div>
+      </section>
+
+      <section class="panel activity-panel">
+        <div class="section-heading">
+          <div><p class="step">LIVE</p><h3>운행 기록</h3></div>
+          <span class="tag" id="modeTag">ROBOT LIVE</span>
+        </div>
+        <div id="activityLog" class="activity-log"><p class="empty">아직 실행 기록이 없습니다.</p></div>
+      </section>
+
+      <section class="panel manual-panel">
+        <div class="section-heading manual-heading">
+          <div><p class="step">MANUAL</p><h3>전체 모션 수동 조작</h3></div>
+          <span class="tag">전체 43개 슬롯</span>
+        </div>
+        <p class="description">모든 버튼은 이전 종료각과 새 모션 시작각을 확인한 뒤 실행합니다.</p>
+
+        <div class="manual-section">
+          <div class="manual-label"><b>기본 조작</b><span>주행 단위 동작</span></div>
+          <div class="motion-grid ten-columns">
+            <button class="motion-button" data-slot="1"><small>01</small><strong>직진</strong></button>
+            <button class="motion-button" data-slot="2"><small>02</small><strong>좌회전</strong></button>
+            <button class="motion-button" data-slot="3"><small>03</small><strong>우회전</strong></button>
+          </div>
+        </div>
+
+        <div class="manual-section">
+          <div class="manual-label"><b>길안내 · 이동</b><span>출발지 → 주차 위치</span></div>
+          <div class="motion-grid ten-columns">
+            <button class="motion-button route" data-slot="4"><small>04</small><strong>P1 이동</strong></button>
+            <button class="motion-button route" data-slot="5"><small>05</small><strong>P2 이동</strong></button>
+            <button class="motion-button route" data-slot="6"><small>06</small><strong>P3 이동</strong></button>
+            <button class="motion-button route" data-slot="7"><small>07</small><strong>P4 이동</strong></button>
+            <button class="motion-button route" data-slot="8"><small>08</small><strong>P5 이동</strong></button>
+            <button class="motion-button route" data-slot="9"><small>09</small><strong>P6 이동</strong></button>
+            <button class="motion-button route" data-slot="10"><small>10</small><strong>P7 이동</strong></button>
+          </div>
+        </div>
+
+        <div class="manual-section">
+          <div class="manual-label"><b>길안내 · 복귀</b><span>주차 위치 → 출발지</span></div>
+          <div class="motion-grid ten-columns">
+            <button class="motion-button return" data-slot="14"><small>14</small><strong>P1 복귀</strong></button>
+            <button class="motion-button return" data-slot="15"><small>15</small><strong>P2 복귀</strong></button>
+            <button class="motion-button return" data-slot="16"><small>16</small><strong>P3 복귀</strong></button>
+            <button class="motion-button return" data-slot="17"><small>17</small><strong>P4 복귀</strong></button>
+            <button class="motion-button return" data-slot="18"><small>18</small><strong>P5 복귀</strong></button>
+            <button class="motion-button return" data-slot="19"><small>19</small><strong>P6 복귀</strong></button>
+            <button class="motion-button return" data-slot="20"><small>20</small><strong>P7 복귀</strong></button>
+          </div>
+        </div>
+
+        <div class="manual-section angle-section">
+          <div class="manual-label"><b>우산 각도 · 양(+)</b><span>시계방향 / 서쪽</span></div>
+          <div class="motion-grid ten-columns">
+            <button class="motion-button angle" data-slot="21"><small>21</small><strong>+10°</strong></button>
+            <button class="motion-button angle" data-slot="22"><small>22</small><strong>+20°</strong></button>
+            <button class="motion-button angle" data-slot="23"><small>23</small><strong>+30°</strong></button>
+            <button class="motion-button angle" data-slot="24"><small>24</small><strong>+40°</strong></button>
+            <span class="grid-divider"></span>
+            <button class="motion-button return" data-slot="31"><small>31</small><strong>-10° 복귀</strong></button>
+            <button class="motion-button return" data-slot="32"><small>32</small><strong>-20° 복귀</strong></button>
+            <button class="motion-button return" data-slot="33"><small>33</small><strong>-30° 복귀</strong></button>
+            <button class="motion-button return" data-slot="34"><small>34</small><strong>-40° 복귀</strong></button>
+          </div>
+        </div>
+
+        <div class="manual-section angle-section">
+          <div class="manual-label"><b>우산 각도 · 음(-)</b><span>반시계방향 / 동쪽</span></div>
+          <div class="motion-grid ten-columns">
+            <button class="motion-button angle negative" data-slot="25"><small>25</small><strong>-10°</strong></button>
+            <button class="motion-button angle negative" data-slot="26"><small>26</small><strong>-20°</strong></button>
+            <button class="motion-button angle negative" data-slot="27"><small>27</small><strong>-30°</strong></button>
+            <button class="motion-button angle negative" data-slot="28"><small>28</small><strong>-40°</strong></button>
+            <span class="grid-divider"></span>
+            <button class="motion-button return" data-slot="35"><small>35</small><strong>+10° 복귀</strong></button>
+            <button class="motion-button return" data-slot="36"><small>36</small><strong>+20° 복귀</strong></button>
+            <button class="motion-button return" data-slot="37"><small>37</small><strong>+30° 복귀</strong></button>
+            <button class="motion-button return" data-slot="38"><small>38</small><strong>+40° 복귀</strong></button>
+          </div>
+        </div>
+
+        <div class="manual-section">
+          <div class="manual-label"><b>우산 높이</b><span>피니언 상승 / 하강</span></div>
+          <div class="motion-grid ten-columns">
+            <button class="motion-button height" data-slot="41"><small>41</small><strong>+50°</strong></button>
+            <button class="motion-button height" data-slot="42"><small>42</small><strong>+100°</strong></button>
+            <button class="motion-button height" data-slot="43"><small>43</small><strong>+150°</strong></button>
+            <button class="motion-button height" data-slot="44"><small>44</small><strong>+200°</strong></button>
+            <button class="motion-button height" data-slot="45"><small>45</small><strong>+250°</strong></button>
+            <button class="motion-button return" data-slot="46"><small>46</small><strong>-50° 복귀</strong></button>
+            <button class="motion-button return" data-slot="47"><small>47</small><strong>-100° 복귀</strong></button>
+            <button class="motion-button return" data-slot="48"><small>48</small><strong>-150° 복귀</strong></button>
+            <button class="motion-button return" data-slot="49"><small>49</small><strong>-200° 복귀</strong></button>
+            <button class="motion-button return" data-slot="50"><small>50</small><strong>-250° 복귀</strong></button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="warningModal" aria-hidden="true">
+    <div class="warning-dialog" role="alertdialog" aria-modal="true" aria-labelledby="warningTitle">
+      <div class="warning-icon">!</div>
+      <p class="eyebrow danger">START ANGLE MISMATCH</p>
+      <h3 id="warningTitle">급격한 움직임이 예상됩니다</h3>
+      <p>이전 모션의 종료각과 새 모션의 시작각이 다릅니다. 모터 보호를 위해 실행을 차단했습니다.</p>
+      <div id="warningDetails" class="warning-details"></div>
+      <div class="modal-actions">
+        <button class="secondary-action" id="cancelWarning">실행 취소</button>
+        <button class="danger-action" id="forceAction" hidden>실행 차단됨</button>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

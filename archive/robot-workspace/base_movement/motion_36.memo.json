@@ -1,0 +1,21 @@
+{
+  "memo": "node 0x02 / phact0 / MD0 tilt: absolute -20.0 to 0.0 deg; MD1-MD11 omitted",
+  "teaching_start_angles_rad": [
+    -0.3490658503988659,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "motion_sha256": "d873d8435dcc8f95f7c839e310407da7dd700c0cc84b63bf19a7cffb548e5897",
+  "schema": 2,
+  "slot_id": 36,
+  "updated": "2026-08-08T07:17:13+09:00"
+}
