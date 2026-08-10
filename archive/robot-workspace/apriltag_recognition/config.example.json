@@ -1,0 +1,42 @@
+{
+  "camera": {
+    "device": 0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "calibration_file": "camera_calibration.json"
+  },
+  "tag": {
+    "family": "DICT_APRILTAG_36h11",
+    "id": 0,
+    "size_m": 0.18
+  },
+  "detector": {
+    "backend": "vpi",
+    "retry_scales": [1.0, 1.5, 2.0],
+    "recovery_retry_interval_frames": 5,
+    "clahe_clip_limit": 2.0,
+    "adaptive_thresh_win_size_max": 53,
+    "min_marker_perimeter_rate": 0.015,
+    "polygonal_approx_accuracy_rate": 0.05,
+    "perspective_pixels_per_cell": 8,
+    "corner_refinement_win_size": 7
+  },
+  "tracking": {
+    "target_distance_m": 1.2,
+    "distance_tolerance_m": 0.2,
+    "turn_enter_deg": 10.0,
+    "turn_exit_deg": 6.0,
+    "lost_timeout_s": 0.6,
+    "ema_alpha": 0.35
+  },
+  "motion": {
+    "FORWARD": null,
+    "BACKWARD": null,
+    "TURN_LEFT": null,
+    "TURN_RIGHT": null,
+    "HOLD": null,
+    "LOST": null,
+    "repeat_interval_s": 0.25
+  }
+}

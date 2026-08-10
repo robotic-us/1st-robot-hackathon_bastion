@@ -1,0 +1,11 @@
+{
+  "note": "Temporary approximate calibration for 1280x720. Replace using calibrate_camera.py for accurate distance.",
+  "approximate": true,
+  "image_size": [1280, 720],
+  "camera_matrix": [
+    [1108.5, 0.0, 640.0],
+    [0.0, 1108.5, 360.0],
+    [0.0, 0.0, 1.0]
+  ],
+  "dist_coeffs": [0.0, 0.0, 0.0, 0.0, 0.0]
+}
