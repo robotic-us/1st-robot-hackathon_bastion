@@ -1,0 +1,8 @@
+{
+  "memo": "RIGHT graph segment 6: 1800 to 2160 deg; 3000 ms gentle alignment; MD0/MD1 omitted",
+  "teaching_start_angles_rad": [null, null, 31.41592653589793, null, null, null, 31.41592653589793, 31.41592653589793, 31.41592653589793, null, null, null],
+  "motion_sha256": "f281179b4d14a0a53c671c1be1134b81e6f2aa7ff1c9527ac5a5204c08a6d5a2",
+  "schema": 2,
+  "slot_id": 18,
+  "updated": "2026-08-07T14:25:00+09:00"
+}
