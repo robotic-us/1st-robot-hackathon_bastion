@@ -1,0 +1,38 @@
+{
+  "location": {
+    "name": "Daejeon",
+    "latitude_deg": 36.3504,
+    "longitude_deg": 127.3845,
+    "timezone": "Asia/Seoul"
+  },
+  "motions": [
+    {
+      "name": "NIGHT_OR_PARK",
+      "min_elevation_deg": -90.0,
+      "max_elevation_deg": 0.0,
+      "motion_id": null,
+      "motion_file": null
+    },
+    {
+      "name": "SUN_LOW",
+      "min_elevation_deg": 0.0,
+      "max_elevation_deg": 25.0,
+      "motion_id": 1,
+      "motion_file": "../Motions/motion_01.csv"
+    },
+    {
+      "name": "SUN_MIDDLE",
+      "min_elevation_deg": 25.0,
+      "max_elevation_deg": 50.0,
+      "motion_id": 2,
+      "motion_file": "../Motions/motion_02.csv"
+    },
+    {
+      "name": "SUN_HIGH",
+      "min_elevation_deg": 50.0,
+      "max_elevation_deg": 90.1,
+      "motion_id": null,
+      "motion_file": null
+    }
+  ]
+}

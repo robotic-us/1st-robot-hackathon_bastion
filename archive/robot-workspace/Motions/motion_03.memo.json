@@ -1,0 +1,40 @@
+{
+  "memo": "twomotortest",
+  "zero_snapshot": {
+    "format_version": 2,
+    "robot_uid": "0039004A3133511832353236",
+    "known_mask": 7,
+    "zero_offset_f32_le_hex": [
+      "c3f580bf",
+      "b7f345c0",
+      "e04fedbf",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "teaching_start_angles_rad": [
+    0.21642082724729686,
+    0.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "motion_sha256": "0c4a28290034862b3bebe677e68aaae367a7f5abec3da98f08245a9d1268dd45",
+  "schema": 2,
+  "slot_id": 3,
+  "updated": "2026-08-07T00:05:18"
+}

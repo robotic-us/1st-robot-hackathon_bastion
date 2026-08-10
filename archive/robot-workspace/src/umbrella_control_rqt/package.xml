@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>umbrella_control_rqt</name>
+  <version>0.1.0</version>
+  <description>PhORCE startup launch and rqt umbrella motion selector.</description>
+  <maintainer email="phorce@example.com">phorce</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>agx_motion_slot</exec_depend>
+  <exec_depend>agx_phorce_bridge</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>python3-pyqt5</exec_depend>
+  <exec_depend>python_qt_binding</exec_depend>
+  <exec_depend>qt_gui</exec_depend>
+  <exec_depend>rqt_gui</exec_depend>
+  <exec_depend>rqt_gui_py</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+    <rqt_gui plugin="${prefix}/plugin.xml"/>
+  </export>
+</package>

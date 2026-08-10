@@ -1,0 +1,10 @@
+<library path="umbrella_control_rqt">
+  <class name="Umbrella Control" type="umbrella_control_rqt.plugin.UmbrellaControlPlugin" base_class_type="rqt_gui_py::Plugin">
+    <description>사람 키와 현재 태양 고도로 양산 모션을 선택하고 테스트 모션을 실행합니다.</description>
+    <qtgui>
+      <group><label>PhORCE</label></group>
+      <label>Umbrella Control</label>
+      <statustip>PhORCE 양산 제어</statustip>
+    </qtgui>
+  </class>
+</library>

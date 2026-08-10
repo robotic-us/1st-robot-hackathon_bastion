@@ -1,0 +1,40 @@
+{
+  "memo": "ROTATE10_DUAL: phact0/node 0x02 and phact1/node 0x03",
+  "zero_snapshot": {
+    "format_version": 2,
+    "robot_uid": "0039004A3133511832353236",
+    "known_mask": 7,
+    "zero_offset_f32_le_hex": [
+      "c3f580bf",
+      "b7f345c0",
+      "e04fedbf",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "teaching_start_angles_rad": [
+    0.0,
+    0.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "motion_sha256": "64dff91d3422876109944467ff9b9beb180f4478cf02620ca4ec9da1a0d2960e",
+  "schema": 2,
+  "slot_id": 4,
+  "updated": "2026-08-07T01:55:29"
+}
